@@ -10,16 +10,22 @@ body {
   background-color: #000;
   font-family: "Inter Tight", sans-serif;
   color: white;
+
+  //   height: 4000px;
 }
 
 section {
-  position: relative;
+  position: fixed;
   width: 100vw;
   height: 100vh;
 }
 
+.webgl {
+  position: fixed;
+}
+
 .content {
-  position: absolute;
+  position: fixed;
   pointer-events: none;
   width: 100%;
   background-color: transparent;
