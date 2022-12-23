@@ -22,4 +22,22 @@ section {
   position: absolute;
   pointer-events: none;
   width: 100%;
+  background-color: transparent;
+  z-index: 99;
+  padding: 2rem;
+
+  .text {
+    h3,
+    p {
+      font-weight: 100;
+      margin: 0 0 0.3rem 0;
+    }
+    span {
+      font-weight: 600;
+    }
+
+    .title {
+      margin: 0 0 1rem 0;
+    }
+  }
 }

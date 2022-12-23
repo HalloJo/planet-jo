@@ -21,4 +21,18 @@ section {
   position: absolute;
   pointer-events: none;
   width: 100%;
+  background-color: transparent;
+  z-index: 99;
+  padding: 2rem;
+}
+.content .text h3,
+.content .text p {
+  font-weight: 100;
+  margin: 0 0 0.3rem 0;
+}
+.content .text span {
+  font-weight: 600;
+}
+.content .text .title {
+  margin: 0 0 1rem 0;
 }/*# sourceMappingURL=styles.css.map */
