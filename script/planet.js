@@ -132,3 +132,8 @@ window.addEventListener("resize", () => {
 //     earth.rotation.set(0, scrollPosition / 100, 0);
 //     firstRing.rotation.set(0, scrollPosition / -250, 0);
 // });
+
+document.addEventListener("mousemove", (event) => {
+  camera.position.x = (window.innerWidth / 2 - event.pageX) * 2;
+  camera.position.y = (window.innerHeight / 2 - event.pageY) * 2;
+});
