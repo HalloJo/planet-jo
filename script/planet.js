@@ -29,7 +29,7 @@ const webgl = document.querySelector(".webgl");
 webgl.appendChild(renderer.domElement);
 
 const scene = new Scene();
-scene.fog = new THREE.FogExp2(0x000000, 0.00035);
+scene.fog = new THREE.FogExp2(0x000000, 0.00025);
 
 const camera = new PerspectiveCamera(
   50,
