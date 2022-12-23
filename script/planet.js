@@ -10,6 +10,12 @@ const {
   TextureLoader,
   TorusGeometry,
   Group,
+  Geometry,
+  Vector3,
+  PointsMaterial,
+  Points,
+  Spherical,
+  AdditiveBlending,
 } = THREE;
 
 const renderer = new WebGLRenderer({
@@ -23,6 +29,7 @@ const webgl = document.querySelector(".webgl");
 webgl.appendChild(renderer.domElement);
 
 const scene = new Scene();
+scene.fog = new THREE.FogExp2(0x000000, 0.00035);
 
 const camera = new PerspectiveCamera(
   50,
@@ -93,10 +100,44 @@ const makeMoon = () => {
   return moon;
 };
 
+const makeStars = () => {
+  const texture = loader.load("assets/particle.png");
+  const geometry = new Geometry();
+
+  for (let i = 0; i < 5000; i = i + 1) {
+    const point = new Vector3();
+    const sphericalPoint = new Spherical(
+      900 + Math.random() * 900,
+      2 * Math.PI * Math.random(),
+      Math.PI * Math.random()
+    );
+
+    point.setFromSpherical(sphericalPoint);
+
+    geometry.vertices.push(point);
+  }
+
+  const material = new PointsMaterial({
+    // color: 0xffffff,
+    size: 50,
+    map: texture,
+    transparent: false,
+    blending: AdditiveBlending,
+    depthTest: true,
+  });
+
+  const points = new Points(geometry, material);
+
+  scene.add(points);
+
+  return points;
+};
+
 const earth = makePlanet();
 const firstRing = makeRing(1000, 0xf9a026);
 const secondRing = makeRing(1100, 0xffffff);
 const thirdRing = makeRing(900, 0x444444);
+const stars = makeStars();
 
 const moon = makeMoon();
 const moonGroup = new Group();
